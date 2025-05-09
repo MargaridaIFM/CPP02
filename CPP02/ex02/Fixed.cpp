@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mi-matias <mi-matias@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 17:43:10 by mi-matias         #+#    #+#             */
-/*   Updated: 2025/04/20 12:17:13 by mi-matias        ###   ########.fr       */
+/*   Updated: 2025/05/09 09:50:32 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,29 @@ const int Fixed:: fractBits = 8;
 
 Fixed::Fixed() : value(0)
 {
-   // std::cout << "Default constructor called" << std::endl;
+   std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed:: Fixed(const int vInt)
 {
-    //std::cout << "Int constructor called" << std::endl;
+    std::cout << "Int constructor called" << std::endl;
     value = vInt << fractBits;
     
 }
 Fixed::Fixed(const float vFloat)
 {
-   // std::cout << "Float constructor called" << std::endl;
+   std::cout << "Float constructor called" << std::endl;
     value = roundf(vFloat * (1 << fractBits));
     
 }
 Fixed::Fixed(const Fixed &other)
 {
-    //std::cout << "Copy constructor called" << std::endl;
+   // std::cout << "Copy constructor called" << std::endl;
     *this = other;      
 }
 Fixed &Fixed::operator=(const Fixed &other)
 {
-    //std::cout << "Copy assignment operator called" << std::endl;
+   // std::cout << "Copy assignment operator called" << std::endl;
     if(this != &other)
         this->value = other.value;
     return(*this);
@@ -46,7 +46,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 
 Fixed::~Fixed()
 {
-    //std::cout << "Destructor called" << std::endl;
+   // std::cout << "Destructor called" << std::endl;
 }
 int Fixed::getRawBits() const
 {
@@ -100,10 +100,6 @@ bool Fixed::operator!=(const Fixed &other) const
 Fixed Fixed::operator+(const Fixed &other) const
 {
     return(Fixed(this->toFloat() + other.toFloat()));
-    // using only integer
-    // Fixed temp(*this);
-    // temp.value = temp.value +other.value;
-    // return (temp);
 }
 
 Fixed Fixed::operator-(const Fixed &other) const
@@ -157,7 +153,7 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed &a, Fixed &b)
 {  
-    // nao necessito de compara em float por que o operador < e > ja comparam em float
+    // the comparison is in float because its used in < > operators;
     return(a < b) ? a : b;
 }
 const Fixed& Fixed::min(const Fixed &a, const Fixed &b)

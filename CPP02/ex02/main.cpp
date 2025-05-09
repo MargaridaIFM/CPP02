@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mi-matias <mi-matias@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mfrancis <mfrancis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:49:21 by mi-matias         #+#    #+#             */
-/*   Updated: 2025/04/20 12:18:21 by mi-matias        ###   ########.fr       */
+/*   Updated: 2025/05/09 09:51:28 by mfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 int main( void )
 {
-Fixed a;
-Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-std::cout << "a:" << std::endl << a << std::endl;
-std::cout << ++a << std::endl;
-std::cout << a << std::endl;
-std::cout << a++ << std::endl;
-std::cout << a << std::endl;
-std::cout << "b:  " << std::endl << b << std::endl;
-std::cout << "max" << std::endl << Fixed::max( a, b ) << std::endl;
-return 0;
-}
+    std::cout << "creating a\n";
+    Fixed a;
+    std::cout << "creating const b\n";
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    std::cout << "a:" << a << std::endl;
+    std::cout << "++a:"<< ++a << std::endl;
+    std::cout << "a:" << a << std::endl;
+    std::cout << "a++:" <<a++ << std::endl;
+    std::cout << "a:" << a << std::endl;
+    std::cout << "b: " << b << std::endl;
+    std::cout << "max " << Fixed::max( a, b ) << std::endl;
+    std::cout << "mni " << Fixed::min( a, b ) << std::endl;
 
-// 0
-// 0.00390625
-// 0.00390625
-// 0.00390625
-// 0.0078125
-// 10.1016
-// 10.1016
+    return 0;
+}
